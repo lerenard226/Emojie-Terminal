@@ -15,7 +15,12 @@ def main():
   fonc.clear()
   if os.name=="nts":
     import windows as win
-    win.main()
+    if win.verifi():
+      print(f"\nVotre terminal peut déjà affichier des emoji.\n")
+    else:
+      print(f"\nVotre terminal ne peut pas déjà affichier des emoji.\n")
+      input("Tapez ENTREE pour l'installer ")
+      win.main()
   else:
     package = 'fonts-noto-color-emoji'
     if fonc.is_package_installed(package):
